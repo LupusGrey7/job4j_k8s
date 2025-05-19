@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: job4j-devops
   labels:
-    app: calculator
+    app: calculator # Label for the deployment(смотри в service.yaml, раздел selector:app: calculator)
 spec:
   replicas: 3
   selector:
