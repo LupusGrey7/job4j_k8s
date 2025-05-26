@@ -1,21 +1,22 @@
+# Deployment -This file describes the Deployment object in Kubernetes, which is responsible for managing and scaling pods.
 apiVersion: apps/v1
-kind: Deployment
+kind: Deployment # Type of the Kubernetes object (Определяет тип Kubernetes-объекта, который мы хотим создать, в данном случае это Deployment.)
 metadata:
   name: job4j-devops
   labels:
     app: calculator # Label for the deployment(смотри в service.yaml, раздел selector:app: calculator)
-spec:
-  replicas: 3
-  selector:
+spec: # Specification of the deployment
+  replicas: 3 # Number of replicas
+  selector: # Selector for the deployment (which pods will be managed by this deployment)
     matchLabels:
-      app: calculator
-  template:
+      app: calculator # Label for the deployment -for Pod
+  template: # sections Template: Section that describes the template that will be used to create pods.
     metadata:
-      labels:
+      labels: # Labels for the pod
         app: calculator
     spec:
-      containers:
-        - name: calculator
-          image: lupusgrey/job4j_devops:v.1
+      containers: # List of containers which will be run in the pod
+        - name: calculator # Name of the container
+          image: lupusgrey/job4j_devops:v.1 # Docker image
           ports:
             - containerPort: 8080

@@ -1,9 +1,11 @@
+# This file describes a Service object in Kubernetes that provides access to pods through a single network interface.
+# Этот файл описывает объект Service в Kubernetes, который предоставляет доступ к подам через единый сетевой интерфейс.
 apiVersion: v1
 kind: Service # Service Type
 metadata:
   name: calculator-service # Service Name -имя сервиса, которое используется для его идентификации в Kubernetes. Это должно быть уникальным в рамках вашего кластера.
 spec: # Specification of the service - спецификация, описывающая, как должен работать объект Service.
-  type: NodePort # Type of service - тип сервиса - NodePort, Kubernetes открывает порт на всех узлах кластера, через который можно получить доступ к сервису извне.
+  type: NodePort # Type of service - тип сервиса - NodePort/LoadBalancer, Kubernetes открывает порт на всех узлах кластера, через который можно получить доступ к сервису извне.
   selector: # Selects the pods to expose - выбирает поды, которые будут доступны через этот сервис. В данном случае, это поды с меткой app: calculator.
     app: calculator
   ports:
