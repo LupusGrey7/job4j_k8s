@@ -1,0 +1,10 @@
+# for storing and managing configuration data in the form of key-value pairs that do not contain sensitive information.
+apiVersion: v1
+kind: ConfigMap
+metadata: # unique name associated with the ConfigMap file
+  name: calculator
+data: # block of key-value pairs
+  spring_profiles_active: "local"
+  spring_datasource_url: "jdbc:postgresql://192.168.0.109:5432/job4j_devops?currentSchema=public&characterEncoding=UTF-8"
+  spring_liquibase_url: "jdbc:postgresql://192.168.0.109:5432/job4j_devops?currentSchema=public&characterEncoding=UTF-8"
+  spring_liquibase_enabled: "true"
