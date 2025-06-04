@@ -1,0 +1,10 @@
+# for storing and managing configuration data in the form of key-value pairs that do not contain sensitive information.
+apiVersion: v1
+kind: ConfigMap
+metadata: # unique name associated with the ConfigMap file
+  name: calculator
+data: # block of key-value pairs
+  spring_profiles_active: {{ .Values.config.profiles_active | quote }}
+  spring_datasource_url: {{ .Values.config.database_url | quote }}
+  spring_liquibase_url: {{ .Values.config.liquibase_url | quote }}
+  spring_liquibase_enabled: {{ .Values.config.liquibase_enable | quote }}
