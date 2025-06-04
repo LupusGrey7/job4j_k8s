@@ -27,11 +27,11 @@ spec: # Specification of the deployment
                configMapKeyRef:
                  name: calculator
                  key: spring_profiles_active
-            - name: SPRING_DATASOURCE_URL # Environment variable
+            - name: SPRING_DATASOURCE_URL # Environment variable name
               valueFrom: # Value of the environment variable - get this from ConfigMap file
-                configMapKeyRef:
-                  name: calculator
-                  key: spring_datasource_url
+                configMapKeyRef: # reference to the ConfigMap file
+                  name: calculator # name of the ConfigMap
+                  key: spring_datasource_url # ENV key from the ConfigMap
             - name: SPRING_LIQUIBASE_URL
               valueFrom:
                 configMapKeyRef:
