@@ -1,0 +1,20 @@
+# Manifest ingress.yaml- Наша задача, перенаправить все запросы с Nginx на контроллер Service,
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: calculator-ingress
+  annotations:
+    kubernetes.io/ingress.class: "nginx" # используем Ingress Controller Nginx - этот параметр связывает Ingress Nginx и Ingress Calculator-Service.
+    nginx.ingress.kubernetes.io/rewrite-target: / # Перенаправление всех запросов с Nginx на контроллер Service
+spec:
+  rules:
+    - host: localhost
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: calculator-service
+                port:
+                  number: 8080
