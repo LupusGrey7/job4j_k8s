@@ -15,9 +15,9 @@ spec: # Specification of the deployment
       labels: # Labels for the pod
         app: calculator
     spec:
-      containers: # List of containers which will be run in the pod
+      containers: # List of containers which will be run in the Pods
         - name: calculator # Name of the container
-          image: lupusgrey/job4j_devops:v.1.0.1 # Docker image
+          image: {{ .Values.containers.image | quote }}  # Docker image
           ports:
             - containerPort: 8080
           env:
