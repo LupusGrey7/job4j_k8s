@@ -11,4 +11,4 @@ config: # ConfigMap manifest
   liquibase_enable: "true"
 
 containers: # Deployment manifest
-  image: "lupusgrey/job4j_devops:v.1.0.1"
+  image: "lupusgrey/job4j_devops:v.1.0.2"
